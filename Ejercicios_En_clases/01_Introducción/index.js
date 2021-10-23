@@ -1,12 +1,12 @@
-var numero =5;
-numero=7;
-console.log(numero);
+const { funcion1, variable } = require('./funcionesmat')
 
 
+let resultado =  funcion1(5, variable ,"sumar") ;
+console.log(resultado)
 
+// let numero =5
 
-
-//for
-for (let i=0; i<5; i++){
-    
-}
+// for ( let i=0;i<5; i++ )
+// {
+//     console.log(`Actualmente I vale ${i} `)
+// }

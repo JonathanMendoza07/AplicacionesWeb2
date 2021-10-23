@@ -1,21 +1,19 @@
-// console.log(saludar3("Jonathan"));
-
-function saludar(nombre) {
-    return `Hola buenas ${nombre}`;
-}
-
-const saludar2 =function(nombre)
+function saludar(nombre)
 {
-    return `Hola que tal ${nombre}`;
+    return `Hola como estas ${nombre}`;
 }
 
-const saludar3 =(nombre)=>{
-    return `Hola que tal ${nombre}`
+const saludar2 = function(nombre)
+{
+    return `hola como estas ${nombre}`;
 }
 
-
-function mostrarFuncionSaludar(fn,parametro)
+const saludar3 = (nombre)=>{
+    return `hola como estas ${nombre}`;
+}
+function mostrarFuncionParaSaludar(fn,parametro)
 {
     console.log(fn(parametro));
 }
-mostrarFuncionSaludar(saludar3,"Jonathan");
+
+mostrarFuncionParaSaludar(saludar2, "Jonathan");
