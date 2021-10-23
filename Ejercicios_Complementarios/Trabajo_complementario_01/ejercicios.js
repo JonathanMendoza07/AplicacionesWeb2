@@ -9,3 +9,6 @@ let multiplicacion = (numero, iteraciones = 1) => {
 }
 console.log("ejercicio 1:");
 multiplicacion(3);
+
+
+//
