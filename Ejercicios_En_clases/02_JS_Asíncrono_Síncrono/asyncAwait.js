@@ -1,61 +1,59 @@
-const libros =[
+const libros = [
     {
-        id:1,
-        titulo:'Sistemas distribuidos NodeJs',
-        idautor:1
+        id: 1,
+        titulo: 'Sistemas distribuidos NodeJs',
+        idautor: 1
     },
     {
-        id:2,
-        titulo:'Aprendiendo JS',
-        idautor:2
+        id: 2,
+        titulo: 'Aprendiendo JS',
+        idautor: 2
     },
     {
-        id:3,
+        id: 3,
         titulo: 'Clean Code JS',
-        idautor:2
+        idautor: 2
     }
 ]
 const autores = [
     {
-        id:1,
-        nombre:'Pedro Miguel'
+        id: 1,
+        nombre: 'Pedro Miguel'
     },
     {
-        id:2,
-        nombre:'Juan AndrEs'
+        id: 2,
+        nombre: 'Juan AndrEs'
     },
     {
-        id:3,
-        nombre:'Julio Verne'
+        id: 3,
+        nombre: 'Julio Verne'
     }
 ]
 
-async function buscarLibroPorId(id){
-    const libro = libros.find((libro)=>  libro.id===id );
-    if (!libro)
-    {
+async function buscarLibroPorId(id) {
+    const libro = libros.find((libro) => libro.id === id);
+    if (!libro) {
         const error = new Error();
-        error.message="No encontramos el libro";
+        error.message = "No encontramos el libro";
         throw error;
     }
     return libro;
 }
-async function buscarAutorPorId(id){
-    const autor = autores.find((autor)=>{ 
-        return autor.id===id;
+async function buscarAutorPorId(id) {
+    const autor = autores.find((autor) => {
+        return autor.id === id;
     })
-    if (!autor)
-    {
-        const error= new Error();
-        error.message="No encontramos el autor";
+    if (!autor) {
+        const error = new Error();
+        error.message = "No encontramos el autor";
         throw error;
     }
     return autor;
 }
 
 
-libros.forEach( async (libro)=>{
-    const librox = await  buscarLibroPorId(libro.id);
+libros.forEach(async (libro) => {
+    const librox = await buscarLibroPorId(libro.id);
     console.log(librox)
 })
 
