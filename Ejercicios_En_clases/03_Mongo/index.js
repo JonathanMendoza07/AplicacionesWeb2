@@ -6,13 +6,14 @@ const cron = require('node-cron');
 const { MONGO_URI } = require('./config');
 const { Noticias } = require('./models');
 
+mongoose.connect(MONGO_URI, {useNewUrlParser:true, useUnifiedTopology:true});
 
 cron.schedule("* * * * *", async () => {
     try 
     {
-        const reconexion = await mongoose.connect(MONGO_URI)
-        const html = axios.get("https://cnnespanol.cnn.com/");
-        const $ = cheerio.load(html.data)
+        
+        const html = await axios.get("https://cnnespanol.cnn.com/")
+        const $ = cheerio.load(html.data);
         const titulos = $(".news__title");
         let arregloNoticias = [];
         titulos.each(async (index, element) => {
