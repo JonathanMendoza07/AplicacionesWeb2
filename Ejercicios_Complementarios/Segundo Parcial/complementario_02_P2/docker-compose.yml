@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+  #separa el proyecto dentro de un contenedor
+  # separa la API de la base de datos 
+  api:
+    build: .
+    depends_on:
+      - mongo
+    # indicamos parametros de configuracion
+    environment:
+      - PORT=8000
+      - MONGO_URL=mongodb://mongo:27017/test
+    ports:
+    # puertos a utilizar tanto local como virtual
+      - "8000:8000"
+
+  #imagen de mongo
+  mongo:
+    image: mongo
