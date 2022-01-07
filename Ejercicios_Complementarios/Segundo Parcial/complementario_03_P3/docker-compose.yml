@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  proyect:
+    build: ./proyect
+  adverts:
+    build: ./microservices/advert-service
+  comunities:
+    build: ./microservices/comunity-service
+  posts:
+    build: ./microservices/post-service
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - proyect
+      - adverts
+      - comunities
+      - posts
